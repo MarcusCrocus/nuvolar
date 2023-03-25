@@ -4,6 +4,7 @@ import controller.Controller;
 import model.Aircraft;
 import model.City;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -171,11 +172,26 @@ public class FlightCalculator {
                         goOught = true;
                         break;
                     case "2":
-                        System.out.println("Introduce the distance in between: ");
-                        roundedNum = keyboard.nextInt();
+                        boolean validInput = false;
+                        while (!validInput) {
+                            try {
+                                System.out.println("Introduce the distance in between: ");
+                                roundedNum = keyboard.nextInt();
+                                System.out.println(ctrl.addFlightDetails(fNumber, timeTakeOf, passengerNumber,
+                                        departureLocation, arrivalLocation, roundedNum));
+                                validInput = true;
 
-                        System.out.println(ctrl.addFlightDetails(fNumber, timeTakeOf, passengerNumber,
-                                departureLocation, arrivalLocation, roundedNum));
+                            }
+                            catch (InputMismatchException e) {
+                                System.out.println("The number should to be Integer. Please try again");
+                                keyboard.nextLine();
+                            }
+                        }
+
+
+
+
+
                         goOught = true;
                         break;
                     case "0":
