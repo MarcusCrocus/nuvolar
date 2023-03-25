@@ -2,6 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * Generic Class for storage Arrays of objects
+ * @param <T>
+ */
 public class GenericList<T> {
 
 

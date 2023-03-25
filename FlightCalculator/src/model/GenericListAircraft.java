@@ -1,6 +1,7 @@
 package model;
 
 import java.io.File;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -33,10 +34,7 @@ public class GenericListAircraft extends GenericList<Aircraft>  {
                 break;
             }
         }
-//        String a = "14.14";
-//        String b = a.replace(".", ":");
-//
-//        LocalDateTime
+
         return exist;
     }
 
@@ -125,6 +123,11 @@ public class GenericListAircraft extends GenericList<Aircraft>  {
         File file = new File(path);
         int roundedNum = 0;
 
+        //        String a = "14.14";
+//        String b = a.replace(".", ":");
+
+
+
         try {
             Scanner scanner = new Scanner(file);
 
@@ -136,7 +139,7 @@ public class GenericListAircraft extends GenericList<Aircraft>  {
                 Aircraft air = new Aircraft();
                 while (attribute.hasMoreElements()) {
                     hav.setFlightNumber(attribute.nextElement().toString());
-                    hav.setTimeTakeOf(Float.parseFloat(attribute.nextElement().toString()));
+                    String varTime = hav.setTimeTakeOf(attribute.nextElement().toString());
                     hav.setPassengerNumber(Integer.parseInt(attribute.nextElement().toString()));
                     hav.setLatitude1(Double.parseDouble(attribute.nextElement().toString()));
                     hav.setLongitude1(Double.parseDouble(attribute.nextElement().toString()));
@@ -146,6 +149,10 @@ public class GenericListAircraft extends GenericList<Aircraft>  {
                     double distance = Haversine.getDistance(hav.getLatitude1(), hav.getLongitude1(),
                             hav.getLatitude2(), hav.getLongitude2());
                     roundedNum = (int) distance;
+
+                    //replacing string TimeFormat ot float
+                    String StringTime = varTime.replace(":",".");
+                    float floatTime = Float.parseFloat(StringTime);
 
                     String departure = "";
                     String arrivals = "";
@@ -166,7 +173,7 @@ public class GenericListAircraft extends GenericList<Aircraft>  {
                     // After evaluation, we need to add all correct data in our obj of Aircraft
 
                     air.setFlightNumber(hav.getFlightNumber());
-                    air.setTimeTakeOf(hav.getTimeTakeOf());
+                    air.setTimeTakeOf(floatTime);
                     air.setPassengerNumber(hav.getPassengerNumber());
                     air.setDepartureLocation(departure);
                     air.setArrivalLocation(arrivals);

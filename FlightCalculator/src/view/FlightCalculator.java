@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import controller.Controller;
 import model.Aircraft;
@@ -134,9 +134,10 @@ public class FlightCalculator {
             System.out.println("The flight with this number " + fNumber + " already exist");
             addFlightDetails();
         } else {
-            //TODO: Alert of time
-            System.out.println("Time of take off: ");
+
+            System.out.println("Please Time of take off: ");
             float timeTakeOf = Float.parseFloat(keyboard.nextLine());
+
 
             System.out.println("Number of Passengers: ");
             int passengerNumber = Integer.parseInt(keyboard.nextLine());
@@ -176,14 +177,15 @@ public class FlightCalculator {
                         goOught = true;
                         break;
                     case "2":
-                        boolean validInput = false;
-                        while (!validInput) {
+                        boolean input = false;
+                        while (!input) {
                             try {
                                 System.out.println("Introduce the distance in between: ");
                                 roundedNum = keyboard.nextInt();
+
                                 System.out.println(ctrl.addFlightDetails(fNumber, timeTakeOf, passengerNumber,
                                         departureLocation, arrivalLocation, roundedNum));
-                                validInput = true;
+                                input = true;
 
                             }
                             catch (InputMismatchException e) {
@@ -223,7 +225,9 @@ public class FlightCalculator {
     }
 
     private void createJson() {
-
+//        Gson gson = new Gson();
+//        String json = gson.toJson(ctrl.getData().getAircraft().getData());
+//        System.out.println(json);
     }
 
 }

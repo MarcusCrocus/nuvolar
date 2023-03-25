@@ -1,8 +1,11 @@
 package model;
 
+/**
+ * Class tha calculate the distance between ariports
+ */
 public class Haversine {
     private String flightNumber;
-    private float timeTakeOf;
+    private String timeTakeOf;
     private int passengerNumber;
     double latitude1;
     double longitude1;
@@ -12,7 +15,17 @@ public class Haversine {
 
     public Haversine() {}
 
-    public Haversine(String flightNumber, float timeTakeOf, int passengerNumber, double latitude1, double longitude1, double latitude2, double longitude2) {
+    /**
+     *
+     * @param flightNumber string
+     * @param timeTakeOf string
+     * @param passengerNumber integer
+     * @param latitude1 double
+     * @param longitude1 double
+     * @param latitude2 double
+     * @param longitude2 bouble
+     */
+    public Haversine(String flightNumber, String timeTakeOf, int passengerNumber, double latitude1, double longitude1, double latitude2, double longitude2) {
         this.flightNumber = flightNumber;
         this.timeTakeOf = timeTakeOf;
         this.passengerNumber = passengerNumber;
@@ -30,12 +43,13 @@ public class Haversine {
         this.flightNumber = flightNumber;
     }
 
-    public float getTimeTakeOf() {
+    public String getTimeTakeOf() {
         return timeTakeOf;
     }
 
-    public void setTimeTakeOf(float timeTakeOf) {
+    public String setTimeTakeOf(String timeTakeOf) {
         this.timeTakeOf = timeTakeOf;
+        return timeTakeOf;
     }
 
     public int getPassengerNumber() {
@@ -82,19 +96,14 @@ public class Haversine {
         return value * Math.PI / 180;
     }
 
-    @Override
-    public String toString() {
-        return "Haversine{" +
-                "flightNumber='" + flightNumber + '\'' +
-                ", timeTakeOf=" + timeTakeOf +
-                ", passengerNumber=" + passengerNumber +
-                ", latitude1=" + latitude1 +
-                ", longitude1=" + longitude1 +
-                ", latitude2=" + latitude2 +
-                ", longitude2=" + longitude2 +
-                '}';
-    }
-
+    /**
+     *
+     * @param latitude1 double
+     * @param longitude1 double
+     * @param latitude2 double
+     * @param longitude2 double
+     * @return double value after calculation
+     */
     public  static double getDistance(double latitude1, double longitude1, double latitude2, double longitude2) {
         double latDistance = toRad(latitude2 - latitude1);
         double longDistance = toRad(longitude2 - longitude1);

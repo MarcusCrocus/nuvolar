@@ -1,10 +1,19 @@
 package model;
 
+/**
+ * Class that storage objects of City
+ */
 public class City {
     private String name;
     private double latitude;
     private double longitude;
 
+    /**
+     *
+     * @param name string
+     * @param latitude double
+     * @param longitude double
+     */
 
     public City(String name, double latitude, double longitude) {
         this.name = name;
