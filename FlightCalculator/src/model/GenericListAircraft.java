@@ -117,11 +117,11 @@ public class GenericListAircraft extends GenericList<Aircraft>  {
      * @return string if was ok
      */
 
-    public String addFromFileHaversine(GenericList<Haversine> haversine, GenericList<City> cities, GenericList<Aircraft> aircraft) {
+    public String addFromFileHaversine(GenericList<Haversine> haversine, GenericList<City> cities, GenericList<Aircraft> aircraft, String arrivalLocation) {
 
         //TODO: ask rout path from the view
 
-        String path = "D:\\Haversine.txt";
+        String path = arrivalLocation; //D:\Haversine.txt
         File file = new File(path);
         int roundedNum = 0;
 
@@ -183,7 +183,8 @@ public class GenericListAircraft extends GenericList<Aircraft>  {
             return "-------------All Data has been correctly charged in DataBase";
 
         } catch (Exception e) {
-            return "Something went wrong";
+            return "!!!!! Something went wrong, or file by this rout doesn't exist!!!!";
+
         }
     }
 

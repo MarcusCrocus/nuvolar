@@ -112,7 +112,7 @@ public class Controller {
      * This method return
      * @return true if data has been added correctly after reading file .txt
      */
-    public String saveObjectsHaversine() {
-        return lAircraft.addFromFileHaversine(data.getHaversine(),data.getCities(),data.getAircraft());
+    public String saveObjectsHaversine(String arrivalLocation) {
+        return lAircraft.addFromFileHaversine(data.getHaversine(),data.getCities(),data.getAircraft(),arrivalLocation);
     }
 }

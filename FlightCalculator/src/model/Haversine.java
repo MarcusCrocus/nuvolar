@@ -8,11 +8,9 @@ public class Haversine {
     double longitude1;
     double latitude2;
     double longitude2;
-
     static final int R = 6371;
 
-    public Haversine() {
-    }
+    public Haversine() {}
 
     public Haversine(String flightNumber, float timeTakeOf, int passengerNumber, double latitude1, double longitude1, double latitude2, double longitude2) {
         this.flightNumber = flightNumber;

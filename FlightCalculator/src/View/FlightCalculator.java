@@ -3,7 +3,6 @@ package View;
 import controller.Controller;
 import model.Aircraft;
 import model.City;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -82,7 +81,8 @@ public class FlightCalculator {
             System.out.println(" 2. Show all flights (by default we have some data already charged)");
             System.out.println(" 3. Show possible flights");
             System.out.println(" 4. Add Flights from file.txt");
-            System.out.println(" 5. read from Json");
+            System.out.println(" 5. Read from Json");
+            System.out.println(" 6. Create Json objects from all flights in DDBB");
             option = askData();
             switch (option) {
                 case "1":
@@ -100,6 +100,9 @@ public class FlightCalculator {
                 case "5":
                     System.out.println("read from Json");
                     break;
+                case "6":
+                    createJson();
+                    break;
                 case "0":
                     goOught = true;
                 default:
@@ -107,6 +110,7 @@ public class FlightCalculator {
             }
         } while (!goOught);
     }
+
 
     String askData() {
         String incomeOption;
@@ -188,10 +192,6 @@ public class FlightCalculator {
                             }
                         }
 
-
-
-
-
                         goOught = true;
                         break;
                     case "0":
@@ -217,8 +217,13 @@ public class FlightCalculator {
     }
 
     private String readFromHaversine() {
+        System.out.println("Please introduce the rout path to read from file: ");
+        String arrivalLocation = keyboard.nextLine();
+        return ctrl.saveObjectsHaversine(arrivalLocation);
+    }
 
-        return ctrl.saveObjectsHaversine();
+    private void createJson() {
+
     }
 
 }
