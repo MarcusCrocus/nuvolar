@@ -149,7 +149,6 @@ public class FlightCalculator {
             String option;
 
             double flightRange = 0;
-            int roundedNum = (int) flightRange;
 
             do {
             option = askData();
@@ -165,7 +164,10 @@ public class FlightCalculator {
                         double longitude2 = Double.parseDouble(keyboard.nextLine());
 
                         flightRange = ctrl.Haversine(latitude1,longitude1,latitude2,longitude2);
-                        System.out.println(flightRange);
+                        int roundedNum = (int) flightRange;
+
+                        System.out.println(ctrl.addFlightDetails(fNumber, timeTakeOf, passengerNumber,
+                                departureLocation, arrivalLocation, roundedNum));
                         goOught = true;
                         break;
                     case "2":

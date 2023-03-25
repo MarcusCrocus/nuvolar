@@ -110,11 +110,11 @@ public class GenericListAircraft extends GenericList<Aircraft>  {
     }
 
     /**
-     *
+     * This method is reading data from the file.txt and adding all data to the aircraft for next evaluation
      * @param haversine list of data from the .txt
      * @param cities list of objects
      * @param aircraft obj of aircraft
-     * @return
+     * @return string if was ok
      */
 
     public String addFromFileHaversine(GenericList<Haversine> haversine, GenericList<City> cities, GenericList<Aircraft> aircraft) {
@@ -146,8 +146,6 @@ public class GenericListAircraft extends GenericList<Aircraft>  {
                     double distance = Haversine.getDistance(hav.getLatitude1(), hav.getLongitude1(),
                             hav.getLatitude2(), hav.getLongitude2());
                     roundedNum = (int) distance;
-
-                    System.out.println(roundedNum);
 
                     String departure = "";
                     String arrivals = "";
