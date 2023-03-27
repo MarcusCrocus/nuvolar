@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Class for
+ * Class for creating of generics collections of objects
  */
 public class Data {
 
@@ -13,6 +13,7 @@ public class Data {
     /**
      * Default Class constructor
      */
+
     public Data() {
         super();
         this.aircraft = new GenericList<Aircraft>();

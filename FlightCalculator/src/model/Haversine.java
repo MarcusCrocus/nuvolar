@@ -96,8 +96,21 @@ public class Haversine {
         return value * Math.PI / 180;
     }
 
+    @Override
+    public String toString() {
+        return "Haversine{" +
+                "flightNumber='" + flightNumber + '\'' +
+                ", timeTakeOf='" + timeTakeOf + '\'' +
+                ", passengerNumber=" + passengerNumber +
+                ", latitude1=" + latitude1 +
+                ", longitude1=" + longitude1 +
+                ", latitude2=" + latitude2 +
+                ", longitude2=" + longitude2 +
+                '}';
+    }
+
     /**
-     *
+     * Method of distance calculation
      * @param latitude1 double
      * @param longitude1 double
      * @param latitude2 double

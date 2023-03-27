@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 /**
- * Generic Class for storage Arrays of objects
+ * Generic Class for adding the objects to the list of ObjectsCollection
  * @param <T>
  */
 public class GenericList<T> {

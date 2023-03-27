@@ -1,7 +1,9 @@
 package controller;
 
 import model.*;
+import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -114,5 +116,9 @@ public class Controller {
      */
     public String saveObjectsHaversine(String arrivalLocation) {
         return lAircraft.addFromFileHaversine(data.getHaversine(),data.getCities(),data.getAircraft(),arrivalLocation);
+    }
+
+    public List <Aircraft> createListOfJson(String arrivalLocation) throws IOException, ParseException {
+        return lAircraft.createListOfJson(data.getAircraft(),data.getCities(), arrivalLocation);
     }
 }

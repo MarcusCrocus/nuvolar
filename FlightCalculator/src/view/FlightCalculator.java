@@ -3,8 +3,14 @@ package view;
 import controller.Controller;
 import model.Aircraft;
 import model.City;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.*;
+import com.google.gson.Gson;
+import org.json.simple.parser.ParseException;
+
 
 /**
  * View Class
@@ -18,7 +24,7 @@ public class FlightCalculator {
     Controller ctrl = new Controller();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ParseException {
 
         FlightCalculator fl = new FlightCalculator();
         fl.addData();
@@ -67,7 +73,7 @@ public class FlightCalculator {
     }
 
 
-    void menu() {
+    void menu() throws IOException, ParseException {
         boolean goOught = false;
         String option;
 
@@ -80,9 +86,8 @@ public class FlightCalculator {
             System.out.println(" 1. Introduce flight details");
             System.out.println(" 2. Show all flights (by default we have some data already charged)");
             System.out.println(" 3. Show possible flights");
-            System.out.println(" 4. Add Flights from file.txt");
-            System.out.println(" 5. Read from Json");
-            System.out.println(" 6. Create Json objects from all flights in DDBB");
+            System.out.println(" 4. I will use txt file for input data (add)");
+            System.out.println(" 5. I will use Json file for input data (add)");
             option = askData();
             switch (option) {
                 case "1":
@@ -98,10 +103,7 @@ public class FlightCalculator {
                     System.out.println(readFromHaversine());
                     break;
                 case "5":
-                    System.out.println("read from Json");
-                    break;
-                case "6":
-                    createJson();
+                    readFromJson();
                     break;
                 case "0":
                     goOught = true;
@@ -224,10 +226,18 @@ public class FlightCalculator {
         return ctrl.saveObjectsHaversine(arrivalLocation);
     }
 
-    private void createJson() {
+
+//    private void createJson() {
 //        Gson gson = new Gson();
 //        String json = gson.toJson(ctrl.getData().getAircraft().getData());
 //        System.out.println(json);
+//    }
+
+    private List <Aircraft> readFromJson() throws IOException, ParseException {
+        System.out.println("Please introduce the rout path to read from Json file: ");
+        String arrivalLocation = keyboard.nextLine();
+        return ctrl.createListOfJson(arrivalLocation);
+
     }
 
 }

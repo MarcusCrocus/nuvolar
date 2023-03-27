@@ -1,7 +1,5 @@
 package model;
 
-import java.time.LocalTime;
-
 /**
  * Class of object Aircraft
  */
